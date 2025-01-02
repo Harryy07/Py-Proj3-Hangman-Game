@@ -46,6 +46,6 @@ while not game_over:
 
     if not "_" in display:
         game_over = True
-        print("****************************YOU WIN****************************")
+        print("***************************YOU WIN****************************")
 
     print(stages[lives])

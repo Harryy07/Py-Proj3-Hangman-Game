@@ -1,11 +1,12 @@
 import random
-from operator import index
+from operator import index, truth
 
 word_list = ["aardvark", "baboon", "camel"]
 
 chosen_word = random.choice(word_list)
 print(chosen_word)
 
+lives = 6 #initialising number of lives left.
 #creating the same number of blanks as chosen word.
 placeholder = "_"
 for blank in chosen_word:
@@ -26,8 +27,16 @@ while not game_over:
             display += letter #keeping the previous correct guess
         else:
             display += "_"
-    print(display)
+
 
     if not "_" in display:
         game_over = True
         print("You won! ")
+    if not guess in chosen_word:
+            lives -= 1
+    if lives == 0:
+        game_over = True
+        print("You Lose, Game Over!")
+
+    print(display)
+    print(f"Number of lives left: {lives}")
